@@ -1,39 +1,46 @@
-const enterButton =
-  document.getElementById("enterBot");
+const API_URL = "https://elisy254-bot-backend.onrender.com";
 
-const status =
-  document.getElementById("status");
+async function enterKey() {
+    const key = prompt("🔐 Enter your ELISY254 access key:");
 
+    if (!key) {
+        return;
+    }
 
-enterButton.addEventListener("click", function () {
+    try {
+        const response = await fetch(
+            `${API_URL}/api/auth/enter-key`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    key: key
+                })
+            }
+        );
 
-  status.textContent =
-    "🔵 Preparing ELISY254 DOLLARS ZONE...";
+        const data = await response.json();
 
-  enterButton.style.boxShadow =
-    "0 0 50px rgba(30,170,255,1)";
+        if (data.success) {
+            alert("✅ ACCESS GRANTED");
 
+            localStorage.setItem(
+                "elisy254_session",
+                data.token
+            );
 
-  setTimeout(function () {
+            window.location.href = "dashboard.html";
+        } else {
+            alert("❌ " + data.message);
+        }
 
-    /*
-      NEXT STEP:
+    } catch (error) {
+        console.error(error);
 
-      This button will eventually open:
-
-      /login.html
-
-      or
-
-      /enter-key.html
-
-      The real MT5 connection and AI system
-      will NOT be placed inside this frontend.
-    */
-
-    status.textContent =
-      "🔵 ENTER KEY SYSTEM READY";
-
-  }, 1000);
-
-});
+        alert(
+            "❌ Cannot connect to ELISY254 backend."
+        );
+    }
+}
