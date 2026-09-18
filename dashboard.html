@@ -6,252 +6,61 @@
 
   <title>ELISY254 DOLLARS ZONE — Dashboard</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, #10234a 0%, #050914 45%, #02040a 100%);
-      color: #ffffff;
-      min-height: 100vh;
-    }
-
-    header {
-      padding: 18px;
-      border-bottom: 1px solid rgba(0, 200, 255, 0.25);
-      background: rgba(3, 8, 20, 0.85);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(12px);
-    }
-
-    .top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .brand {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .online {
-      font-size: 12px;
-      padding: 7px 10px;
-      border-radius: 20px;
-      background: rgba(0, 255, 150, 0.12);
-      border: 1px solid rgba(0, 255, 150, 0.4);
-      color: #55ffb0;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .welcome {
-      margin-bottom: 20px;
-    }
-
-    .welcome h1 {
-      font-size: 27px;
-      margin-bottom: 7px;
-    }
-
-    .welcome p {
-      color: #9ba9c7;
-      font-size: 14px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .card {
-      background: rgba(9, 18, 38, 0.88);
-      border: 1px solid rgba(70, 150, 255, 0.2);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
-    }
-
-    .card h2 {
-      font-size: 15px;
-      color: #9eb6dc;
-      margin-bottom: 12px;
-    }
-
-    .big {
-      font-size: 27px;
-      font-weight: 800;
-    }
-
-    .status-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .bot-status {
-      color: #ffcf45;
-      font-weight: 800;
-    }
-
-    .start-button {
-      width: 100%;
-      border: none;
-      border-radius: 14px;
-      padding: 15px;
-      margin-top: 15px;
-      background: linear-gradient(90deg, #0066ff, #00c8ff);
-      color: white;
-      font-weight: 800;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .stop-button {
-      background: linear-gradient(90deg, #8b1520, #ef3340);
-    }
-
-    .ai-list {
-      display: grid;
-      gap: 9px;
-    }
-
-    .ai {
-      display: flex;
-      justify-content: space-between;
-      padding: 11px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.04);
-    }
-
-    .ai span:last-child {
-      color: #ffd34d;
-      font-weight: bold;
-    }
-
-    .direction {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 900;
-      margin: 10px 0;
-      color: #55cfff;
-    }
-
-    .controls {
-      display: grid;
-      gap: 10px;
-    }
-
-    label {
-      color: #9ba9c7;
-      font-size: 13px;
-    }
-
-    input {
-      width: 100%;
-      margin-top: 5px;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #29466e;
-      background: #050b18;
-      color: white;
-      font-size: 15px;
-    }
-
-    .protection {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px;
-      background: rgba(0, 255, 150, 0.06);
-      border-radius: 10px;
-      color: #70ffbd;
-    }
-
-    .message {
-      margin-top: 15px;
-      text-align: center;
-      color: #8da4c9;
-      font-size: 13px;
-      min-height: 20px;
-    }
-
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .menu button {
-      padding: 12px 5px;
-      border-radius: 10px;
-      border: 1px solid #243b61;
-      background: rgba(255,255,255,0.04);
-      color: #d9e7ff;
-      cursor: pointer;
-    }
-
-    @media (max-width: 650px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      main {
-        padding: 14px;
-      }
-
-      .welcome h1 {
-        font-size: 23px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
   <div class="top">
-    <div class="brand">ELISY254 DOLLARS ZONE</div>
+
+    <div class="brand">
+      ELISY254 DOLLARS ZONE
+    </div>
+
     <div class="online" id="connectionStatus">
       🔵 CONNECTING
     </div>
+
   </div>
 </header>
 
+
 <main>
 
+  <!-- WELCOME -->
+
   <section class="welcome">
+
     <h1>🤖 Trading Dashboard</h1>
-    <p>AI-powered MT5 control center</p>
+
+    <p>
+      Forex MT5 control center
+    </p>
+
   </section>
+
 
   <section class="grid">
 
+
     <!-- BOT STATUS -->
+
     <div class="card">
+
       <h2>🤖 BOT STATUS</h2>
 
       <div class="status-box">
+
         <span>Current state</span>
-        <span class="bot-status" id="botStatus">
+
+        <span
+          class="bot-status"
+          id="botStatus"
+        >
           STOPPED
         </span>
+
       </div>
 
       <button
@@ -262,70 +71,188 @@
         ▶ START BOT
       </button>
 
-      <div class="message" id="botMessage"></div>
+      <div
+        class="message"
+        id="botMessage"
+      ></div>
+
     </div>
+
 
     <!-- BALANCE -->
+
     <div class="card">
+
       <h2>💰 ACCOUNT BALANCE</h2>
-      <div class="big" id="balance">
+
+      <div
+        class="big"
+        id="balance"
+      >
         $10.00
       </div>
-      <p style="color:#8da4c9;margin-top:7px;">
+
+      <p class="muted-text">
         MT5 account
       </p>
+
     </div>
 
-    <!-- AI DIRECTION -->
-    <div class="card">
-      <h2>🧠 AI MARKET DIRECTION</h2>
 
-      <div class="direction" id="direction">
+    <!-- ANALYSIS MODE -->
+
+    <div class="card">
+
+      <h2>🔵 ANALYSIS MODE</h2>
+
+      <div
+        class="analysis-mode"
+        id="analysisMode"
+      >
+        ENGINE
+      </div>
+
+      <p
+        class="mode-description"
+        id="modeDescription"
+      >
+        Engine analysis is active.
+      </p>
+
+      <div class="mode-list">
+
+        <div class="mode-item">
+
+          <span>🔵 ENGINE</span>
+
+          <span id="engineStatus">
+            AVAILABLE
+          </span>
+
+        </div>
+
+        <div class="mode-item">
+
+          <span>🤖 AI</span>
+
+          <span id="aiStatus">
+            AVAILABLE
+          </span>
+
+        </div>
+
+        <div class="mode-item">
+
+          <span>🔵🤖 HYBRID</span>
+
+          <span id="hybridStatus">
+            AVAILABLE
+          </span>
+
+        </div>
+
+      </div>
+
+      <button
+        class="refresh-button"
+        onclick="loadAnalysisMode()"
+      >
+        🔄 REFRESH MODE
+      </button>
+
+    </div>
+
+
+    <!-- MARKET DIRECTION -->
+
+    <div class="card">
+
+      <h2>📊 MARKET DIRECTION</h2>
+
+      <div
+        class="direction"
+        id="direction"
+      >
         WAIT
       </div>
 
-      <p style="text-align:center;color:#8da4c9;">
-        AI decision
+      <p class="center-muted">
+        Current analysis signal
       </p>
+
     </div>
 
+
     <!-- AI ENGINES -->
+
     <div class="card">
+
       <h2>🧠 AI ENGINES</h2>
 
       <div class="ai-list">
 
         <div class="ai">
+
           <span>ChatGPT</span>
-          <span id="chatgpt">WAITING</span>
+
+          <span id="chatgpt">
+            WAITING
+          </span>
+
         </div>
 
         <div class="ai">
+
           <span>Gemini</span>
-          <span id="gemini">WAITING</span>
+
+          <span id="gemini">
+            WAITING
+          </span>
+
         </div>
 
         <div class="ai">
+
           <span>Claude</span>
-          <span id="claude">WAITING</span>
+
+          <span id="claude">
+            WAITING
+          </span>
+
         </div>
 
         <div class="ai">
+
           <span>DeepSeek</span>
-          <span id="deepseek">WAITING</span>
+
+          <span id="deepseek">
+            WAITING
+          </span>
+
         </div>
 
       </div>
+
+      <p class="engine-note">
+        AI providers remain optional.
+        ENGINE can operate without a paid AI API.
+      </p>
+
     </div>
 
+
     <!-- TRADING SETTINGS -->
+
     <div class="card">
+
       <h2>⚙️ TRADING SETTINGS</h2>
 
       <div class="controls">
 
         <label>
+
           Lot Size
+
           <input
             id="lotSize"
             type="number"
@@ -333,17 +260,23 @@
             min="0.01"
             step="0.01"
           >
+
         </label>
 
+
         <label>
+
           Maximum Open Trades
+
           <input
             id="maxTrades"
             type="number"
             value="10"
             min="1"
           >
+
         </label>
+
 
         <button
           class="start-button"
@@ -354,43 +287,69 @@
 
       </div>
 
-      <div class="message" id="settingsMessage"></div>
+      <div
+        class="message"
+        id="settingsMessage"
+      ></div>
+
     </div>
 
+
     <!-- CAPITAL PROTECTION -->
+
     <div class="card">
+
       <h2>🛡️ CAPITAL PROTECTION</h2>
 
       <div class="protection">
+
         <span>Protection</span>
+
         <strong>ON</strong>
+
       </div>
 
-      <p style="color:#8da4c9;margin-top:12px;font-size:13px;">
-        Risk controls must be enforced by the backend/MT5
-        execution engine.
+      <p class="muted-paragraph">
+
+        Risk controls must be enforced by the
+        backend/MT5 execution engine.
+
       </p>
+
     </div>
 
+
     <!-- POSITIONS -->
+
     <div class="card">
+
       <h2>📈 OPEN POSITIONS</h2>
 
-      <div class="big" id="openTrades">
+      <div
+        class="big"
+        id="openTrades"
+      >
         0
       </div>
 
-      <p style="color:#8da4c9;margin-top:7px;">
+      <p class="muted-text">
         Current open trades
       </p>
+
     </div>
 
-    <!-- LAST ANALYSIS -->
-    <div class="card">
-      <h2>📊 LAST AI ANALYSIS</h2>
 
-      <p id="analysisText" style="color:#aebdd7;line-height:1.5;">
-        Waiting for AI analysis...
+    <!-- LAST ANALYSIS -->
+
+    <div class="card">
+
+      <h2>📊 LAST ANALYSIS</h2>
+
+      <p
+        id="analysisText"
+        class="analysis-text"
+      >
+        Waiting for market analysis...
       </p>
 
       <button
@@ -399,35 +358,50 @@
       >
         🔄 REFRESH ANALYSIS
       </button>
+
     </div>
 
+
   </section>
+
 
   <!-- QUICK MENU -->
 
   <section class="menu">
 
-    <button onclick="showComingSoon('Trade History')">
+    <button
+      onclick="showComingSoon('Trade History')"
+    >
       📜 History
     </button>
 
-    <button onclick="showComingSoon('Portfolio')">
+    <button
+      onclick="showComingSoon('Portfolio')"
+    >
       💼 Portfolio
     </button>
 
-    <button onclick="showComingSoon('Settings')">
+    <button
+      onclick="showComingSoon('Settings')"
+    >
       ⚙️ Settings
     </button>
 
-    <button onclick="showComingSoon('Manual Trading')">
+    <button
+      onclick="showComingSoon('Manual Trading')"
+    >
       ✋ Manual
     </button>
 
-    <button onclick="showComingSoon('AI Scanner')">
+    <button
+      onclick="showComingSoon('AI Scanner')"
+    >
       🔎 AI Scanner
     </button>
 
-    <button onclick="logout()">
+    <button
+      onclick="logout()"
+    >
       🚪 Logout
     </button>
 
@@ -435,227 +409,8 @@
 
 </main>
 
-<script>
 
-  const API_URL =
-    "https://elisy254-bot-backend.onrender.com";
-
-  let botRunning = false;
-
-  async function loadBotStatus() {
-
-    try {
-
-      const response =
-        await fetch(`${API_URL}/api/bot/status`);
-
-      const data =
-        await response.json();
-
-      document.getElementById("connectionStatus")
-        .textContent = "🟢 RENDER ONLINE";
-
-      botRunning = data.running;
-
-      updateBotUI();
-
-      document.getElementById("lotSize").value =
-        data.lot || 0.01;
-
-      document.getElementById("maxTrades").value =
-        data.maxOpenTrades || 10;
-
-    } catch (error) {
-
-      document.getElementById("connectionStatus")
-        .textContent = "🔴 OFFLINE";
-
-    }
-
-  }
-
-
-  function updateBotUI() {
-
-    const status =
-      document.getElementById("botStatus");
-
-    const button =
-      document.getElementById("botButton");
-
-    if (botRunning) {
-
-      status.textContent = "RUNNING";
-      status.style.color = "#55ffb0";
-
-      button.textContent = "⏹ STOP BOT";
-      button.classList.add("stop-button");
-
-    } else {
-
-      status.textContent = "STOPPED";
-      status.style.color = "#ffcf45";
-
-      button.textContent = "▶ START BOT";
-      button.classList.remove("stop-button");
-
-    }
-
-  }
-
-
-  async function toggleBot() {
-
-    const action =
-      botRunning ? "stop" : "start";
-
-    document.getElementById("botMessage")
-      .textContent = "🔵 Sending request...";
-
-    try {
-
-      const response =
-        await fetch(
-          `${API_URL}/api/bot/${action}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            }
-          }
-        );
-
-      const data =
-        await response.json();
-
-      if (data.success) {
-
-        botRunning = data.running;
-
-        updateBotUI();
-
-        document.getElementById("botMessage")
-          .textContent =
-          data.message;
-
-      } else {
-
-        document.getElementById("botMessage")
-          .textContent =
-          "❌ Request failed";
-
-      }
-
-    } catch (error) {
-
-      document.getElementById("botMessage")
-        .textContent =
-        "❌ Cannot connect to Render";
-
-    }
-
-  }
-
-
-  async function loadAnalysis() {
-
-    const text =
-      document.getElementById("analysisText");
-
-    text.textContent =
-      "🔵 Requesting AI analysis...";
-
-    try {
-
-      const response =
-        await fetch(
-          `${API_URL}/api/analysis/latest`
-        );
-
-      const data =
-        await response.json();
-
-      if (data.success) {
-
-        const analysis =
-          data.analysis;
-
-        document.getElementById("direction")
-          .textContent =
-          analysis.direction || "WAIT";
-
-        document.getElementById("chatgpt")
-          .textContent =
-          analysis.models?.chatgpt || "WAITING";
-
-        document.getElementById("gemini")
-          .textContent =
-          analysis.models?.gemini || "WAITING";
-
-        document.getElementById("claude")
-          .textContent =
-          analysis.models?.claude || "WAITING";
-
-        document.getElementById("deepseek")
-          .textContent =
-          analysis.models?.deepseek || "WAITING";
-
-        text.textContent =
-          analysis.message ||
-          "No analysis available.";
-
-      }
-
-    } catch (error) {
-
-      text.textContent =
-        "❌ AI analysis server unavailable.";
-
-    }
-
-  }
-
-
-  function saveSettings() {
-
-    const lot =
-      document.getElementById("lotSize").value;
-
-    const maxTrades =
-      document.getElementById("maxTrades").value;
-
-    document.getElementById("settingsMessage")
-      .textContent =
-      `💾 Settings selected: Lot ${lot}, Max trades ${maxTrades}`;
-
-  }
-
-
-  function showComingSoon(name) {
-
-    alert(
-      `🔵 ${name} module will be connected next.`
-    );
-
-  }
-
-
-  function logout() {
-
-    localStorage.removeItem(
-      "elisy254_session"
-    );
-
-    window.location.href =
-      "index.html";
-
-  }
-
-
-  loadBotStatus();
-  loadAnalysis();
-
-</script>
+<script src="script.js"></script>
 
 </body>
-  </html>
+      </html>
