@@ -1,11 +1,17 @@
 const API_URL = "https://elisy254-bot-backend.onrender.com";
 
-async function enterKey() {
+const enterButton = document.getElementById("enterBot");
+const status = document.getElementById("status");
+
+enterButton.addEventListener("click", async () => {
+
     const key = prompt("🔐 Enter your ELISY254 access key:");
 
     if (!key) {
         return;
     }
+
+    status.textContent = "🔵 Connecting to ELISY254...";
 
     try {
         const response = await fetch(
@@ -24,23 +30,28 @@ async function enterKey() {
         const data = await response.json();
 
         if (data.success) {
-            alert("✅ ACCESS GRANTED");
+
+            status.textContent = "✅ ACCESS GRANTED";
 
             localStorage.setItem(
                 "elisy254_session",
                 data.token
             );
 
-            window.location.href = "dashboard.html";
+            setTimeout(() => {
+                window.location.href = "dashboard.html";
+            }, 1000);
+
         } else {
-            alert("❌ " + data.message);
+
+            status.textContent = "❌ " + data.message;
         }
 
     } catch (error) {
+
         console.error(error);
 
-        alert(
-            "❌ Cannot connect to ELISY254 backend."
-        );
+        status.textContent =
+            "❌ Cannot connect to Render backend.";
     }
-}
+});
